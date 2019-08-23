@@ -8,3 +8,4 @@ RUN apt-get update \
 && apt-get clean
 
 ENTRYPOINT [ "/opt/runlet/runlet_cli" ]
+CMD [ "@daemon" ]
