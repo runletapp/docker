@@ -1,7 +1,8 @@
 steps:
 - script: |
+    set -e
     docker build -t runletapp/daemon .
-    docker login -u runletbot -p $(pswd)
+    docker login -u runletbot -p $PSWD
     docker push runletapp/daemon
   env:
-    pswd: $(dockerPassword)
+    PSWD: $(dockerPassword)
