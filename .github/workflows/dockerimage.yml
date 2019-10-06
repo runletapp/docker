@@ -5,9 +5,9 @@ on: [push]
 jobs:
 
   build:
- 
+
     runs-on: ubuntu-latest
- 
+
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
@@ -15,4 +15,4 @@ jobs:
     - name: Login to registry
       run: docker login docker.pkg.github.com --username runletapp -p ${{ secrets.registry_password }}
     - name: Push
-      run: docker.pkg.github.com/runletapp/docker/daemon:latest
+      run: docker push docker.pkg.github.com/runletapp/docker/daemon:latest
