@@ -5,7 +5,10 @@ steps:
 - script: |
     set -e
     docker build -t runletapp/daemon .
+- script: |
+    set -e
     docker login -u runletbot -p $PSWD
     docker push runletapp/daemon
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   env:
     PSWD: $(dockerPassword)
